@@ -1,5 +1,7 @@
 package 领扣;
 
+import java.util.ArrayList;
+
 /**
  * 给定一个二叉树，判断其是否是一个有效的二叉搜索树。
  *
@@ -33,7 +35,7 @@ package 领扣;
  * 链接：https://leetcode-cn.com/problems/validate-binary-search-tree
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class _98_验证二叉搜索树_递归 {
+public class _98_验证二叉搜索树_递归_中序遍历 {
 
     class TreeNode {
         int val;
@@ -70,6 +72,29 @@ public class _98_验证二叉搜索树_递归 {
 
     public boolean isValidBST1(TreeNode root){
         //中序遍历
+        ArrayList<Integer> list = new ArrayList<>();
+        inOrder(root, list);
+        for (int i = 1; i < list.size(); i++) {
+            if (list.get(i) <= list.get(i-1)){
+                return false;
+            }
+        }
         return true;
     }
+
+    private void inOrder(TreeNode root, ArrayList<Integer> list){
+        if (root == null) {
+            return;
+        }
+        inOrder(root.left, list);
+        list.add(root.val);
+        inOrder(root.right, list);
+    }
+
+    public boolean isValidBST2(TreeNode root){
+        // 深度优先搜索
+        return true;
+    }
+
+
 }
