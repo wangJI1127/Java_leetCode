@@ -54,6 +54,7 @@ public class _123_Best_Time_to_Buy_and_Sell_Stock_III {
                     dp[i][k][1] = -prices[0];
                     continue;
                 }
+                // 在进行买入的时候次数减一
                 dp[i][k][0] = Math.max(dp[i-1][k][0], dp[i-1][k][1] + prices[i]);
                 dp[i][k][1] = Math.max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]);
             }

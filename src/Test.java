@@ -7,6 +7,6 @@ public class Test {
         char b = '1';
         char c = '2';
         int bb = b - '0' + c - '0';
-        System.out.println(bb);
+        System.out.println(1);
     }
 }
