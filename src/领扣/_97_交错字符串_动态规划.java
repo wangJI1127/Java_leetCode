@@ -27,22 +27,25 @@ public class _97_交错字符串_动态规划 {
         int n = s1.length();
         int m = s2.length();
         Boolean [][] dp = new Boolean[n+1][m+1];
-        dp[0][0] = true;
-        for (int i=1; i<=n; i++){
+        // dp[i][j]表示第一个str的前i个字母和str2的前j个字母，可以交叉组成str3的前i+j个字母的结果
+        dp[0][0] = true; // 都是空字符串的情况
+        for (int i=1; i<=n; i++){ // 只考虑str1的情况
             dp[i][0] = s1.substring(0,i).equals(s3.substring(0,i));
         }
 
-        for (int i=1; i<=m; i++){
+        for (int i=1; i<=m; i++){ // 只考虑str2的情况
             dp[0][i] = s2.substring(0,i).equals(s3.substring(0, i));
         }
 
         for (int i=1; i<=n; i++){
-            for (int j=1; j<=m; j++){
+            for (int j=1; j<=m; j++){  // 考虑两个字符串交叉组成第三个字符串的情况
                 dp[i][j] = (dp[i][j-1] && s2.charAt(j-1) == s3.charAt(i+j-1)) || (dp[i-1][j] && s1.charAt(i-1) == s3.charAt(i+j-1));
             }
         }
         return dp[n][m];
     }
+
+
 
     public static void main(String[] args) {
         String str1 = "aabcc";

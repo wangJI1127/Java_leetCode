@@ -42,7 +42,7 @@ public class _559_N叉树的最大深度_递归_迭代 {
         }
     }
 
-    public int maxDepth(Node root) {
+    private int maxDepth(Node root) {
         // 递归
         if (root == null){
             return 0;
@@ -50,7 +50,7 @@ public class _559_N叉树的最大深度_递归_迭代 {
         int max = 0;
         for (Node child : root.children) {
             int depth = maxDepth(child);
-            max = max > depth ? max : depth;
+            max = Math.max(max, depth);
         }
         return max + 1;
     }

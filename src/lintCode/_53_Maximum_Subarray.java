@@ -29,7 +29,7 @@ public class _53_Maximum_Subarray {
         int sum = 0;
         int ans = nums[0];
         for (int num : nums) {
-            if(sum > 0){
+            if (sum > 0){
                 sum += num;
             }else{
                 sum = 0;

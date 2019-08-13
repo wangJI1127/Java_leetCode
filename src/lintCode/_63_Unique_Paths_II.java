@@ -62,7 +62,6 @@ public class _63_Unique_Paths_II {
                 }
                 if(arr[i-1][j] == -1 && arr[i][j-1] == -1) {
                     arr[i][j] = -1;
-                    continue;
                 }else if (arr[i-1][j] == -1){
                     arr[i][j] = arr[i][j-1];
                 }else if (arr[i][j-1] == -1){
