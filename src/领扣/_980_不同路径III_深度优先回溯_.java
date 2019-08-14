@@ -48,7 +48,7 @@ package 领扣;
  * 链接：https://leetcode-cn.com/problems/unique-paths-iii
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class _980_不同路径III_深度优先回溯1 {
+public class _980_不同路径III_深度优先回溯_ {
 
     int ans;
 
@@ -81,8 +81,6 @@ public class _980_不同路径III_深度优先回溯1 {
 
     public void dfs(int[][] grid, int r, int c, int tr, int tc, int[]dr, int[] dc, int todo) {
         // 深度优先回溯
-        int R = grid.length;
-        int C = grid[0].length;
         todo--;
         if (todo < 0) return;
         if (r == tr && c == tc) {
@@ -91,10 +89,10 @@ public class _980_不同路径III_深度优先回溯1 {
         }
 
         grid[r][c] = 3; // 自己设置的障碍
-        for (int k = 0; k < 4; ++k) {
+        for (int k = 0; k < 4; ++k) { // 向四个方向走
             int nr = r + dr[k];
             int nc = c + dc[k];  // 下一个点的坐标
-            if (0 <= nr && nr < R && 0 <= nc && nc < C) {
+            if (0 <= nr && nr < grid.length && 0 <= nc && nc < grid[0].length) { // 判断边界
                 if (grid[nr][nc] % 2 == 0) // 当为0或2的时候才走
                     dfs(grid, nr, nc, tr, tc, dr, dc, todo);
             }
@@ -102,4 +100,8 @@ public class _980_不同路径III_深度优先回溯1 {
         grid[r][c] = 0; // 删除自己设置的障碍
     }
 
+    public int uniquePathsIII1(int[][] grid) {
+        // 动态规划,,...答案有点看不懂
+        return 1;
+    }
 }
