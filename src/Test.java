@@ -1,12 +1,16 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        char a = 'a';
-        char b = '1';
-        char c = '2';
-        int bb = b - '0' + c - '0';
-        System.out.println(1);
+        List<String > list = new ArrayList<>();
+        list.add("sad");
+        list.add("wqe");
+        list.add("fdasd");
+        list.removeIf("sad"::equals);
+        for (String s : list) {
+            System.out.println(s);
+        }
     }
 }

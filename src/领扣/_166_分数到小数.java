@@ -63,5 +63,9 @@ public class _166_分数到小数 {
         int i = -1;
         System.out.println((long)s/i);
 
+        StringBuilder s1 = new StringBuilder("1.333333");
+        s1.insert(3, "(");
+        System.out.println(s1.toString());
+
     }
 }
