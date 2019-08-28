@@ -81,7 +81,7 @@ public class _207_课程表 {
         int[][] adjacency = new int[numCourses][numCourses];
         int[] flags = new int[numCourses];
         for (int[] prerequisite : prerequisites) {
-            adjacency[prerequisite[0]][prerequisite[1]] = 1;
+            adjacency[prerequisite[1]][prerequisite[0]] = 1;
         }
         // 从每一个点出发,进行判断是否有环, 如果有一次有环,则返回false
         for (int i=0; i<numCourses; i++){
