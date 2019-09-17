@@ -63,7 +63,7 @@ public class _980_不同路径III_深度优先回溯1 {
 
         int todo = 0;
         int sr = 0, sc = 0;
-        for (int r = 0; r < R; ++r)
+        for (int r = 0; r < R; ++r) {
             for (int c = 0; c < C; ++c) {
                 if (grid[r][c] != -1) {
                     todo++;
@@ -77,6 +77,7 @@ public class _980_不同路径III_深度优先回溯1 {
                     tc = c;
                 }
             }
+        }
 
         ans = 0;
         dfs(sr, sc, todo);
@@ -86,9 +87,13 @@ public class _980_不同路径III_深度优先回溯1 {
     public void dfs(int r, int c, int todo) {
         // 深度优先回溯
         todo--;
-        if (todo < 0) return;
+        if (todo < 0) {
+            return;
+        }
         if (r == tr && c == tc) {
-            if (todo == 0) ans++;
+            if (todo == 0) {
+                ans++;
+            }
             return;
         }
 

@@ -32,7 +32,7 @@ public class _53_Maximum_Subarray {
             if (sum > 0){
                 sum += num;
             }else{
-                sum = 0;
+                sum = num;
             }
             ans = Math.max(sum, ans);
         }
